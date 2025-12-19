@@ -8,7 +8,7 @@ const About = () => {
                 <div className="about-image">
                     {/* Abstract blob behind image */}
                     <div className="about-blob"></div>
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team working" className="about-img-visual" />
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ReboundLabs team collaborating on a digital project" className="about-img-visual" />
                     <div className="experience-badge glass-panel">
                         <span className="years">Premium</span>
                         <span className="label">Quality</span>
