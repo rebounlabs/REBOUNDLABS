@@ -59,7 +59,9 @@
 /* Pop up effect: Increased lift and scale */
 .process-step:hover {
     transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+    /* box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow); removed dark shade */
+    box-shadow: var(--shadow-glow);
+    /* Only keep the subtle glow */
     border-color: var(--color-primary);
 }
 

@@ -97,7 +97,8 @@
 }
 
 .close-btn {
-    color: rgba(255, 255, 255, 0.8);
+    color: #cbd5e1;
+    /* Light Grey (Slate 300) */
     transition: color 0.2s;
 }
 
