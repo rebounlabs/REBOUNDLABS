@@ -41,7 +41,11 @@
     background: var(--color-white);
     padding: 1.5rem 2rem;
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-premium);
+    /* box-shadow: var(--shadow-premium); removed dark shadow */
+    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.25);
+    /* Soft Indigo Glow */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Subtle glass border */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,6 +156,7 @@
         bottom: -20px;
         padding: 1rem 1.5rem;
         width: max-content;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        width: max-content;
+        box-shadow: 0 10px 30px -5px rgba(99, 102, 241, 0.3);
     }
 }
