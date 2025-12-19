@@ -1,0 +1,335 @@
+.services-section {
+    position: relative;
+    /* background color removed to show mesh */
+    overflow: hidden;
+}
+
+.section-header {
+    margin-bottom: 5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    display: inline-block;
+    background: rgba(6, 182, 212, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.section-main-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-heading);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: var(--text-shadow-hero);
+}
+
+.section-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.service-card {
+    /* Deep Glass Premium */
+    padding: 3rem 2rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-glass-panel);
+    /* Extremely subtle fill */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Force remove any potential numbering */
+.service-card::after {
+    content: none !important;
+}
+
+.service-card.expanded::after {
+    content: '' !important;
+}
+
+/* Spotlight Overlay reused style logic */
+.service-card .spotlight-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--x) var(--y), rgba(6, 182, 212, 0.15), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.service-card:hover .spotlight-overlay {
+    opacity: 1;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+    border-color: rgba(99, 102, 241, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary-light);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon-wrapper {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+.service-desc {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+/* Service Modal */
+.service-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    /* Slightly lighter backdrop */
+    backdrop-filter: blur(8px);
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.service-modal-card {
+    background: rgba(255, 255, 255, 0.05);
+    /* Extremely sheer fill, even less than 0.08 */
+    backdrop-filter: blur(40px);
+    /* Increased blur for stronger glass effect */
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Slightly clearer border for definition without darkness */
+    box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.5),
+        /* Deep shadow for depth/pop */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    position: relative;
+    z-index: 9999;
+    color: var(--color-white);
+    /* Ensure text is crisp white on glass */
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    color: var(--color-white);
+}
+
+.service-modal-card .service-icon-wrapper.large {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 2rem;
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 0 30px var(--color-primary-glow);
+}
+
+.service-modal-card .service-title.large {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.animate-pop-in {
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Expanded State */
+.service-card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    z-index: 1000;
+    cursor: default;
+    background: rgba(11, 15, 25, 0.95);
+    /* Deep transparent dark glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7);
+    padding: 3rem;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+/* Overlay backing when expanded */
+.service-card.expanded::after {
+    content: '';
+    position: fixed;
+    top: -100vh;
+    left: -100vw;
+    width: 300vw;
+    height: 300vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .service-modal-card {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+        width: 95%;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .service-modal-card .service-title.large {
+        font-size: 1.5rem;
+    }
+
+    .modal-close-btn {
+        top: 0.5rem;
+        right: 1rem;
+    }
+}
+
+.service-card.expanded .service-link {
+    opacity: 1;
+    transform: none;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
+}
+
+.service-details {
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+.service-details p {
+    margin-bottom: 1rem;
+}
+
+.service-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-link {
+    opacity: 1;
+    transform: translateX(0);
+}

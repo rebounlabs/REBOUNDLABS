@@ -1,0 +1,155 @@
+.process-section {
+    background-color: var(--color-bg-soft);
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* Connecting line (optional, complex to do responsive pure css perfect, simplified here) */
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 0;
+    display: none;
+    /* Hidden for now, can enable if aligned perfectly */
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    background: var(--color-glass-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-lg);
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.spotlight-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--x) var(--y), rgba(99, 102, 241, 0.15), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.process-step:hover .spotlight-overlay {
+    opacity: 1;
+}
+
+/* Pop up effect: Increased lift and scale */
+.process-step:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+    border-color: var(--color-primary);
+}
+
+.process-step:hover::before {
+    /* Additional subtle gloss reflection */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-25deg);
+    animation: gloss 0.7s;
+}
+
+@keyframes gloss {
+    100% {
+        left: 200%;
+    }
+}
+
+.step-number {
+    font-size: 10rem;
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    /* Moved down to be fully visible */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centered horizontally ("Middle") */
+
+    /* Stronger gradient for better visibility */
+    background: var(--color-number-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0;
+    opacity: 1;
+    /* Fully visible opacity */
+    z-index: 0;
+    line-height: 1;
+    pointer-events: none;
+    font-family: var(--font-display);
+}
+
+.step-title,
+.step-desc,
+.step-line {
+    position: relative;
+    z-index: 2;
+}
+
+.step-title {
+    margin-top: 4rem;
+    /* Spacing to account for the visual weight of the number depending on layout */
+}
+
+.step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-heading);
+}
+
+.step-line {
+    width: 40px;
+    height: 4px;
+    background: var(--color-secondary);
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+}
+
+.step-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    .process-steps {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .process-step {
+        margin-top: 1rem;
+    }
+
+    .step-number {
+        font-size: 6rem;
+        top: -30px;
+    }
+}

@@ -1,0 +1,206 @@
+.contact-section {
+    position: relative;
+    padding-bottom: 8rem;
+    overflow: hidden;
+}
+
+.contact-container {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info {
+    flex: 1;
+    animation: slideRight 0.8s ease-out;
+}
+
+.contact-section .section-title {
+    color: var(--color-secondary);
+    background: rgba(6, 182, 212, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.contact-section .section-main-heading {
+    color: var(--color-white);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-desc {
+    color: var(--color-text-secondary);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    /* Lighter on hover */
+    transform: translateX(10px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.contact-icon {
+    color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    padding: 10px;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.contact-item a,
+.contact-item span {
+    color: var(--color-text-primary);
+    transition: color 0.2s;
+}
+
+.contact-item a:hover {
+    color: var(--color-primary-light);
+}
+
+/* Form Styles */
+.contact-form {
+    flex: 1;
+    background: var(--color-glass-panel);
+    /* Dark Glass */
+    backdrop-filter: blur(20px);
+    padding: 3rem;
+    border-radius: 24px;
+    color: var(--color-heading);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-glass-border);
+    animation: slideLeft 0.8s ease-out 0.2s backwards;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--color-glass-border);
+    background-color: var(--color-bg-surface);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background-color: var(--color-bg-surface-light);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-section .section-main-heading {
+        font-size: 2.5rem;
+    }
+}
+
+.success-message {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-white);
+}
+
+.success-message h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-secondary);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
