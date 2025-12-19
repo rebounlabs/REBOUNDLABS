@@ -19,7 +19,7 @@ const ThemeToggle = ({ className, style, ...props }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '8px',
-                color: 'var(--color-text-primary)',
+                // Color is now handled by CSS to match nav links
                 ...style
             }}
             {...props}
@@ -32,7 +32,7 @@ const ThemeToggle = ({ className, style, ...props }) => {
                     exit={{ y: 20, opacity: 0, rotate: 90 }}
                     transition={{ duration: 0.2 }}
                 >
-                    {theme === 'dark' ? <Moon size={20} /> : <Sun size={20} />}
+                    {theme === 'dark' ? <Moon size={18} strokeWidth={2} /> : <Sun size={18} strokeWidth={2} />}
                 </motion.div>
             </AnimatePresence>
         </button>
