@@ -41,7 +41,9 @@ const Header = () => {
                             </li>
                         ))}
                         <li>
-                            <ThemeToggle />
+                            <Magnetic>
+                                <ThemeToggle />
+                            </Magnetic>
                         </li>
                     </ul>
                 </nav>

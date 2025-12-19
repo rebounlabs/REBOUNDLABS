@@ -3,7 +3,7 @@ import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { AnimatePresence, motion } from 'framer-motion';
 
-const ThemeToggle = ({ className }) => {
+const ThemeToggle = ({ className, style, ...props }) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -19,8 +19,10 @@ const ThemeToggle = ({ className }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '8px',
-                color: 'var(--color-text-primary)'
+                color: 'var(--color-text-primary)',
+                ...style
             }}
+            {...props}
         >
             <AnimatePresence mode="wait" initial={false}>
                 <motion.div
