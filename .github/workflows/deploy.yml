@@ -30,6 +30,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
-          branch: gh-pages
+          branch: gh-deploy
           token: ${{ secrets.GITHUB_TOKEN }}
-          single-commit: true
+          force: true
