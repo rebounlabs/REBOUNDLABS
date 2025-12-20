@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, ArrowRight, MessageCircle } from 'lucide-react';
 import DoodleBackground from './DoodleBackground';
 
 const Footer = () => {
@@ -59,14 +59,18 @@ const Footer = () => {
                         <a href="#contact" className="btn btn-primary" style={{ padding: '0.6rem 1.2rem', fontSize: '0.9rem' }}>
                             Contact Us <ArrowRight size={16} style={{ marginLeft: '6px' }} />
                         </a>
+                        <a href="https://wa.me/918129829294" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#25D366', fontWeight: '600', textDecoration: 'none' }}>
+                            <MessageCircle size={18} /> Chat on WhatsApp
+                        </a>
                     </div>
                 </div>
-
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '2rem', textAlign: 'center', fontSize: '0.9rem' }}>
-                    <p>&copy; {new Date().getFullYear()} ReboundLabs. All rights reserved.</p>
-                </div>
             </div>
-        </footer>
+
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '2rem', textAlign: 'center', fontSize: '0.9rem' }}>
+                <p>&copy; {new Date().getFullYear()} ReboundLabs. All rights reserved.</p>
+            </div>
+
+        </footer >
     );
 };
 
