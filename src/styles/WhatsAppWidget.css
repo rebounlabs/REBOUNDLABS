@@ -2,11 +2,11 @@
 .whatsapp-widget {
     position: fixed;
     bottom: 2rem;
-    right: 2rem;
+    left: 2rem;
     z-index: 10000;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     pointer-events: none;
     /* Allow clicking through container */
 }
@@ -51,7 +51,7 @@
     border-radius: 20px;
     margin-bottom: 1rem;
     overflow: hidden;
-    transform-origin: bottom right;
+    transform-origin: bottom left;
     transform: scale(0.8);
     opacity: 0;
     visibility: hidden;
@@ -215,7 +215,8 @@
 @media (max-width: 480px) {
     .whatsapp-widget {
         bottom: 1.5rem;
-        right: 1.5rem;
+        bottom: 1.5rem;
+        left: 1.5rem;
     }
 
     .whatsapp-window {

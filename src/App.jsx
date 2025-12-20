@@ -11,6 +11,7 @@ import LoadingScreen from './components/LoadingScreen';
 import CinematicLoader from './components/CinematicLoader';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import Reveal from './components/Reveal';
+import AIChatWidget from './components/AIChatWidget';
 
 import { ThemeProvider } from './context/ThemeContext';
 
@@ -38,6 +39,7 @@ function App() {
         ) : (
           <div className="main-content">
             <WhatsAppWidget />
+            <AIChatWidget />
             <Header />
             <Hero />
             <Reveal><About /></Reveal>
